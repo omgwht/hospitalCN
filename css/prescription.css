@@ -1,0 +1,199 @@
+body{
+    background-image: url(../img/prescriptionBg.jpg);
+    background-size: cover;
+}
+#inUpperLeft{
+    display: inline;
+    float: left;
+    width: 25%;
+    margin-top: 30px;
+}
+#inUpperLeft:hover{
+	text-decoration: underline; /*下划线效果*/
+}
+#data_share_center,#cn_hospital_sys{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+#cn_hospital_sys{
+    margin-top: 5px;
+}
+/* 设置右上角的两个按钮 */
+#inUpperRight{
+    display: flex;
+    position: relative;
+    float: right;
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: bold;
+    width: 20%;
+    height: 20px;
+}
+#public_sys{
+    border: 2px solid black;
+    position: absolute;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#public_sys:hover{
+    transform: scale(1.1);
+}
+#private_sys{
+    border: 2px solid black;
+    position: absolute;
+    margin-left: 30%;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#private_sys:hover{
+    transform: scale(1.1);
+}
+#center{
+	position: absolute;
+	background-color:rgba(0, 0, 0, 0.2);
+	width:1300px;
+	height:550px;
+	margin-top: 180px;
+	margin-left: 180px;
+	overflow: auto;
+}
+#search{
+	position: absolute;
+	margin-top: 125px;
+	margin-left: 1170px;
+	height: 100px;
+}
+#select{
+	position: absolute;
+	margin-top: 130px;
+	margin-left: -230px;
+	height: 30px;
+	width: 180px;
+	font-size: 20px;
+}
+#input{
+	height: 30px;
+	font-size:20px ;
+}
+#button{
+	height: 35px;
+	font-size:20px ;
+}
+#first{
+	color: lightgrey;
+}
+#method1{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 50px;
+	margin-left: 50px;
+	
+}
+#method2{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 50px;
+	margin-left: 465px;
+}
+#method3{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 50px;
+	margin-left: 875px;
+}
+#method4{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 300px;
+	margin-left: 50px;
+}
+#method5{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 300px;
+	margin-left: 465px;
+}
+#method6{
+	position: absolute;
+	background-color: rgb(256,256,256,0.6);
+	height: 200px;
+	width: 365px;
+	margin-top: 300px;
+	margin-left:875px;
+}
+.symptom{
+	background-color: lightgray;
+	width: 330px;
+	font-size: 20px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+}
+.illnessname{
+	border-bottom-style: solid;
+	border-bottom-color:lightgrey;
+	height: 40px;
+	padding-top: 0px;
+	padding-left: 10px;
+	font-size: 30px;
+}
+.advice{
+	background-color: lightgray;
+	width: 330px;
+	font-size: 20px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+}
+.introduction{
+	background-color: rgb(256,256,256,0.3);
+	width: 330px;
+	font-size: 20px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+}
+.introductionw{
+	background-color: lightgray;
+}
+#detail{
+	position: absolute;
+	margin-left: 300px;
+	width: 50px;
+	font-size: 20px;
+	text-align: left;
+	border-radius: 10px;
+	background-color: lightgray;
+	margin-top:15px;
+}

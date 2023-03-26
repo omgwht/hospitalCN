@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名老中医传承</title>
+    <link type="text/css" rel="stylesheet" href="./css/priv_inherit.css">
+</head>
+<body>
+    <div class="inLeft">
+        <div id="inLeftCenter">
+            <div class="fun_choice" id="hosInfo" onclick="window.location.href='./priv_hosInfo.html'">医院概况</div>
+            <div class="fun_choice" id="peoManage" onclick="window.location.href='./priv_peoManage.html'">人员管理</div>
+            <div class="fun_choice" id="depManage" onclick="window.location.href='./priv_depManage.html'">部门管理</div>
+            <div class="fun_choice" id="outPatitManage" onclick="window.location.href='./priv_outPatitManage.html'">门诊管理</div>
+            <div class="fun_choice" id="phayManage" onclick="window.location.href='./priv_phayManage.html'">药房管理</div>
+            <div class="fun_choice" id="eCaseHis" onclick="window.location.href='./priv_eCaseHis.html'">电子病历</div>
+            <div class="fun_choice" id="inherit" onclick="window.location.href='./priv_inherit.html'">名老中医传承</div>
+            <div class="fun_choice" id="eAssisstance" onclick="window.location.href='./priv_eAssisstance.html'">智能辅助诊疗</div>
+            <div class="fun_choice" id="bgManage" onclick="window.location.href='./priv_bgManage.html'">后台管理</div>
+        </div>
+    </div>
+    <div class="inRight">
+        <div id="inRightUpper">
+            <div id="RU_text">线上智慧管理系统</div>
+        </div>
+        <div id="inRightBottom">
+            <div id="Info_title_div"><h2 id="Info_title">名老中医传承</h2></div>
+            <hr>
+            <div id="Info_text">
+                <div class="column_title" id="famous_doc_info">
+                    <h3>名医信息</h3>
+                </div>
+                <div id="all_doc_info">
+                    <!-- <div class="spe_doc_info">
+                        <div class="doc_pic" id="doc_pic"></div>
+                        <div class="doc_name" id="doc_name"></div>
+                    </div>
+                    <div class="spe_doc_info">
+                        <div class="doc_pic" id="doc_pic"></div>
+                        <div class="doc_name" id="doc_name"></div>
+                    </div> -->
+                </div>
+                <div class="column_title" id="proj_info">
+                    <h3>本院项目信息</h3>
+                </div>
+                <div id="all_proj_info">
+                    <!-- <div class="spe_proj" id="proj_1">
+                        <div class="spe_proj_name" id="proj_1_name"></div>
+                        <div class="spe_proj_info" id="proj_1_info"></div>
+                    </div> -->
+                </div>
+                <div class="column_title" id="fams_doc_proj">
+                    <h3>名医课题信息</h3>
+                </div>
+                <div id="all_fams_doc_proj_info">
+                    <!-- <div class="spe_fams_doc_proj" id="fams_proj_0">
+                        <div class="spe_fams_doc_proj_name" id="fams_proj_0_name">名医治疗思路与中医临床实践</div>
+                        <div class="spe_fams_doc_proj_info" id="fams_proj_0_info">本研究旨在通过对名医治疗思路的研究和总结，探讨其在中医临床实践中的应用和价值，以期为中医临床治疗提供新的思路和方法</div>
+                    </div> -->
+                </div>
+                <div class="column_title" id="fams_doc_note">
+                    <h3>名老中医医案</h3>
+                </div>
+                <div id="all_fams_doc_note_info">
+                    <!-- <div class="spe_fams_doc_note" id="fams_note_0">
+                        <div class="spe_fams_doc_note_name" id="fams_note_0_name">失眠</div>
+                        <div class="spe_fams_doc_note_info" id="fams_note_0_info">患者男性，年龄45岁，因工作压力过大和生活不规律导致失眠症状。患者每晚入睡困难，易醒，早醒，持续时间超过2周。</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="./js/utilData.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var famous_doc_info_arr = getFamousDocInfo();
+        var parent_all_doc_info = document.getElementById('all_doc_info');
+        for(let i = 0; i < famous_doc_info_arr.length; i++){
+            var spe_doc_info_div = document.createElement("div");
+            spe_doc_info_div.className = "spe_doc_info";
+            spe_doc_info_div.id = i;
+            var doc_pic_div = document.createElement("div");
+            doc_pic_div.className = "doc_pic";
+            doc_pic_div.style.backgroundImage = "url("+famous_doc_info_arr[i][0]+")";
+            var doc_name_div = document.createElement("div");
+            doc_name_div.className = "doc_name";
+            doc_name_div.innerHTML = famous_doc_info_arr[i][1];
+            spe_doc_info_div.appendChild(doc_pic_div);
+            spe_doc_info_div.appendChild(doc_name_div);
+            spe_doc_info_div.addEventListener("click",function(){
+                // 展示信息大div
+                var Info_text_div = document.getElementById('Info_text');
+                // 移除所有子元素
+                while(Info_text_div.children.length){
+                    Info_text_div.lastChild.remove();
+                }
+                Info_text_div.style.display = "inline";
+                // 姓名
+                var doc_name = famous_doc_info_arr[this.id][1];
+                // 个人专长
+                var doc_good_at = famous_doc_info_arr[this.id][2];
+                // 个人简介
+                var doc_peo_intro = famous_doc_info_arr[this.id][3];
+                // 临床与教学科研成果
+                var doc_achieve = famous_doc_info_arr[this.id][4];
+                // 学习经历
+                var doc_study_his = famous_doc_info_arr[this.id][5];
+
+                var show_doc_name_div = document.createElement("div");
+                show_doc_name_div.className = "show_doc_name_class";
+                show_doc_name_div.id = "ShowDocNameId";
+                show_doc_name_div.innerHTML = doc_name;
+                show_doc_name_div.style.display = "inline";
+                Info_text_div.appendChild(show_doc_name_div);
+
+                var grzc = document.createElement("div");
+                grzc.id = "GRZC";
+                grzc.innerHTML = "个人专长";
+                Info_text_div.appendChild(grzc);
+
+                var grzc_text = document.createElement("div");
+                grzc_text.className = "grzc_text_class";
+                grzc_text.id = "GRZCId";
+                grzc_text.innerHTML = doc_good_at;
+                grzc_text.style.display = "inline";
+                Info_text_div.appendChild(grzc_text);
+
+                var grjj = document.createElement("div");
+                grjj.id = "GRJJ";
+                grjj.innerHTML = "个人简介";
+                Info_text_div.appendChild(grjj);
+
+                var grjj_text = document.createElement("div");
+                grjj_text.className = "grjj_text_class";
+                grjj_text.id = "GRJJId";
+                grjj_text.innerHTML = doc_peo_intro;
+                grjj_text.style.display = "inline";
+                Info_text_div.appendChild(grjj_text);
+
+                var grcg = document.createElement("div");
+                grcg.id = "GRCG";
+                grcg.innerHTML = "临床与教学科研成果";
+                Info_text_div.appendChild(grcg);
+
+                var grcg_text = document.createElement("div");
+                grcg_text.className = "grcg_text_class";
+                grcg_text.id = "GRCGId";
+                grcg_text.innerHTML = doc_achieve;
+                grcg_text.style.display = "inline";
+                Info_text_div.appendChild(grcg_text);
+
+                var xxjl = document.createElement("div");
+                xxjl.id = "XXJL";
+                xxjl.innerHTML = "学习经历";
+                Info_text_div.appendChild(xxjl);
+
+                var xxjl_text = document.createElement("div");
+                xxjl_text.className = "grcg_text_class";
+                xxjl_text.id = "XXJLId";
+                xxjl_text.innerHTML = doc_study_his;
+                xxjl_text.style.display = "inline";
+                Info_text_div.appendChild(xxjl_text);
+
+            })
+            parent_all_doc_info.appendChild(spe_doc_info_div);
+        }
+        
+        var all_proj_info_div = document.getElementById("all_proj_info");
+        var proj_info_arr = getProjInfo();
+        for(let i = 0; i < proj_info_arr.length; i++){
+            var spe_proj_div = document.createElement("div");
+            spe_proj_div.className = "spe_proj";
+            spe_proj_div.id = "proj_"+i;
+
+            var spe_proj_name = document.createElement("div");
+            spe_proj_name.className = "spe_proj_name";
+            spe_proj_name.id = "proj_"+i+"_name";
+            spe_proj_name.innerHTML = proj_info_arr[i][0];
+            spe_proj_div.appendChild(spe_proj_name);
+
+            var spe_proj_info = document.createElement("div");
+            spe_proj_info.className = "spe_proj_info";
+            spe_proj_info.id = "proj_"+i+"_info";
+            spe_proj_info.innerHTML = proj_info_arr[i][1];
+            spe_proj_div.appendChild(spe_proj_info);
+            all_proj_info_div.appendChild(spe_proj_div);
+        }
+        
+        var all_fams_doc_proj_info_div = document.getElementById('all_fams_doc_proj_info');
+        var fams_doc_proj_arr = getFamsDocProjs();
+        for(let i = 0; i < fams_doc_proj_arr.length; i++){
+            var spe_fams_doc_proj = document.createElement("div");
+            spe_fams_doc_proj.id = "fams_proj_"+i;
+            spe_fams_doc_proj.className = "spe_fams_doc_proj";
+            var spe_fams_doc_proj_name = document.createElement("div");
+            spe_fams_doc_proj_name.className = "spe_fams_doc_proj_name";
+            spe_fams_doc_proj_name.id = "fams_proj_"+i+"_name";
+            spe_fams_doc_proj_name.innerHTML = fams_doc_proj_arr[i][0];
+            var spe_fams_doc_proj_info = document.createElement("div");
+            spe_fams_doc_proj_info.className = "spe_fams_doc_proj_info";
+            spe_fams_doc_proj_info.id = "fams_proj_"+i+"_info";
+            spe_fams_doc_proj_info.innerHTML = fams_doc_proj_arr[i][1];
+            spe_fams_doc_proj.appendChild(spe_fams_doc_proj_name);
+            spe_fams_doc_proj.appendChild(spe_fams_doc_proj_info);
+            all_fams_doc_proj_info_div.appendChild(spe_fams_doc_proj);
+        }
+
+        var all_fams_doc_note_info_div = document.getElementById('all_fams_doc_note_info');
+        var fams_doc_note_arr = getFamsDocNote();
+        for(let i = 0; i < fams_doc_note_arr.length; i++){
+            var spe_fams_doc_note = document.createElement("div");
+            spe_fams_doc_note.className = "spe_fams_doc_note";
+            spe_fams_doc_note.id = i;
+            var spe_fams_doc_note_name = document.createElement("div");
+            spe_fams_doc_note_name.className = "spe_fams_doc_note_name";
+            spe_fams_doc_note_name.id = "fams_note_"+i+"_name";
+            spe_fams_doc_note_name.innerHTML = fams_doc_note_arr[i][0];
+            var spe_fams_doc_note_info = document.createElement("div");
+            spe_fams_doc_note_info.className = "spe_fams_doc_note_info";
+            spe_fams_doc_note_info.id = "fams_note_"+i+"_info";
+            spe_fams_doc_note_info.innerHTML = fams_doc_note_arr[i][1];
+            spe_fams_doc_note.appendChild(spe_fams_doc_note_name);
+            spe_fams_doc_note.appendChild(spe_fams_doc_note_info);
+            spe_fams_doc_note.addEventListener("click",function(){
+                // 展示信息大div
+                var Info_text_div = document.getElementById('Info_text');
+                // 移除所有子元素
+                while(Info_text_div.children.length){
+                    Info_text_div.lastChild.remove();
+                }
+                Info_text_div.style.display = "inline";
+
+                // 病名
+                var detl_doc_note_name_title = document.createElement("div");
+                detl_doc_note_name_title.className = "detl_title";
+                detl_doc_note_name_title.id = "detl_doc_note_name_title";
+                detl_doc_note_name_title.innerHTML = "病名";
+                Info_text_div.appendChild(detl_doc_note_name_title);
+                var detl_doc_note_name = document.createElement("div");
+                detl_doc_note_name.className = "detl_div_block";
+                detl_doc_note_name.id = "DetlDocNoteName";
+                detl_doc_note_name.innerHTML = fams_doc_note_arr[this.id][0];
+                Info_text_div.appendChild(detl_doc_note_name);
+
+                // 病情描述
+                var detl_doc_note_describe_title = document.createElement("div");
+                detl_doc_note_describe_title.className = "detl_title";
+                detl_doc_note_describe_title.id = "detl_doc_note_describe_title";
+                detl_doc_note_describe_title.innerHTML = "病情描述";
+                Info_text_div.appendChild(detl_doc_note_describe_title);
+                var detl_doc_note_describe = document.createElement("div");
+                detl_doc_note_describe.className = "detl_div_block";
+                detl_doc_note_describe.id = "DetlDocNoteDescribe";
+                detl_doc_note_describe.innerHTML = fams_doc_note_arr[this.id][1];
+                Info_text_div.appendChild(detl_doc_note_describe);
+
+                // 诊断分析
+                var detl_doc_note_analyse_title = document.createElement("div");
+                detl_doc_note_analyse_title.className = "detl_title";
+                detl_doc_note_analyse_title.id = "detl_doc_note_analyse_title";
+                detl_doc_note_analyse_title.innerHTML = "诊断分析";
+                Info_text_div.appendChild(detl_doc_note_analyse_title);
+                var detl_doc_note_analyse = document.createElement("div");
+                detl_doc_note_analyse.className = "detl_div_block";
+                detl_doc_note_analyse.id = "DetlDocNoteAnalyse";
+                detl_doc_note_analyse.innerHTML = fams_doc_note_arr[this.id][2];
+                Info_text_div.appendChild(detl_doc_note_analyse);
+
+                // 治疗方案
+                var detl_doc_note_plan_title = document.createElement("div");
+                detl_doc_note_plan_title.className = "detl_title";
+                detl_doc_note_plan_title.id = "detl_doc_note_plan_title";
+                detl_doc_note_plan_title.innerHTML = "治疗方案";
+                Info_text_div.appendChild(detl_doc_note_plan_title);
+                var detl_doc_note_plan = document.createElement("div");
+                detl_doc_note_plan.className = "detl_div_block";
+                detl_doc_note_plan.id = "DetlDocNotePlan";
+                detl_doc_note_plan.innerHTML = fams_doc_note_arr[this.id][3];
+                Info_text_div.appendChild(detl_doc_note_plan);
+
+                // 处方
+                var detl_doc_note_prescription_title = document.createElement("div");
+                detl_doc_note_prescription_title.className = "detl_title";
+                detl_doc_note_prescription_title.id = "detl_doc_note_prescription_title";
+                detl_doc_note_prescription_title.innerHTML = "处方";
+                Info_text_div.appendChild(detl_doc_note_prescription_title);
+                var detl_doc_note_prescription = document.createElement("div");
+                detl_doc_note_prescription.className = "detl_div_block";
+                detl_doc_note_prescription.id = "DetlDocNotePrescription";
+                detl_doc_note_prescription.innerHTML = fams_doc_note_arr[this.id][4];
+                Info_text_div.appendChild(detl_doc_note_prescription);
+
+                // 治疗过程
+                var detl_doc_note_process_title = document.createElement("div");
+                detl_doc_note_process_title.className = "detl_title";
+                detl_doc_note_process_title.id = "detl_doc_note_process_title";
+                detl_doc_note_process_title.innerHTML = "治疗过程";
+                Info_text_div.appendChild(detl_doc_note_process_title);
+                var detl_doc_note_process = document.createElement("div");
+                detl_doc_note_process.className = "detl_div_block";
+                detl_doc_note_process.id = "DetlDocNotePrescription";
+                detl_doc_note_process.innerHTML = fams_doc_note_arr[this.id][5];
+                Info_text_div.appendChild(detl_doc_note_process);
+
+                // 治疗效果
+                var detl_doc_note_effect_title = document.createElement("div");
+                detl_doc_note_effect_title.className = "detl_title";
+                detl_doc_note_effect_title.id = "detl_doc_note_effect_title";
+                detl_doc_note_effect_title.innerHTML = "治疗效果";
+                Info_text_div.appendChild(detl_doc_note_effect_title);
+                var detl_doc_note_effect = document.createElement("div");
+                detl_doc_note_effect.className = "detl_div_block";
+                detl_doc_note_effect.id = "DetlDocNoteEffect";
+                detl_doc_note_effect.innerHTML = fams_doc_note_arr[this.id][6];
+                Info_text_div.appendChild(detl_doc_note_effect);
+
+                // 随访情况
+                var detl_doc_note_follow_situation_title = document.createElement("div");
+                detl_doc_note_follow_situation_title.className = "detl_title";
+                detl_doc_note_follow_situation_title.id = "detl_doc_note_follow_situation_title";
+                detl_doc_note_follow_situation_title.innerHTML = "随访情况";
+                Info_text_div.appendChild(detl_doc_note_follow_situation_title);
+                var detl_doc_note_follow_situation = document.createElement("div");
+                detl_doc_note_follow_situation.className = "detl_div_block";
+                detl_doc_note_follow_situation.id = "DetlDocNoteFollowSituation";
+                detl_doc_note_follow_situation.innerHTML = fams_doc_note_arr[this.id][7];
+                Info_text_div.appendChild(detl_doc_note_follow_situation);
+
+                // 分析
+                var detl_doc_note_final_analyse_title = document.createElement("div");
+                detl_doc_note_final_analyse_title.className = "detl_title";
+                detl_doc_note_final_analyse_title.id = "detl_doc_note_final_analyse_title";
+                detl_doc_note_final_analyse_title.innerHTML = "分析";
+                Info_text_div.appendChild(detl_doc_note_final_analyse_title);
+                var detl_doc_note_final_analyse = document.createElement("div");
+                detl_doc_note_final_analyse.className = "detl_div_block";
+                detl_doc_note_final_analyse.id = "DetlDocNoteFinalAnalyse";
+                detl_doc_note_final_analyse.innerHTML = fams_doc_note_arr[this.id][8];
+                Info_text_div.appendChild(detl_doc_note_final_analyse);
+
+
+            })
+            all_fams_doc_note_info_div.appendChild(spe_fams_doc_note);
+            
+        }
+    </script>
+</html>

@@ -1,0 +1,156 @@
+body{
+    background-image: url(../img/ZY_culture1.png);
+    background-size: cover;
+}
+#inUpperLeft{
+    display: inline;
+    float: left;
+    width: 25%;
+    margin-top: 30px;
+}
+#inUpperLeft:hover{
+	text-decoration: underline; /*下划线效果*/
+}
+#data_share_center,#cn_hospital_sys{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+#cn_hospital_sys{
+    margin-top: 5px;
+}
+/* 设置右上角的两个按钮 */
+#inUpperRight{
+    display: flex;
+    position: relative;
+    float: right;
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: bold;
+    width: 20%;
+    height: 20px;
+}
+#public_sys{
+    border: 2px solid black;
+    position: absolute;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#public_sys:hover{
+    transform: scale(1.1);
+}
+#private_sys{
+    border: 2px solid black;
+    position: absolute;
+    margin-left: 30%;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#private_sys:hover{
+    transform: scale(1.1);
+}
+#left ul li{
+	height: 100px;
+	list-style: none;
+	font-size: 20px;
+	width:120px ;
+	line-height: 100px;
+	padding-left: 40px;
+}
+#left ul{
+	padding-left: 0%;	
+}
+#left ul li:hover{
+	text-decoration: underline;
+	background-color:lightgray;
+}
+#left{
+	position: absolute;
+	margin-top: 11%;
+	background-color: gainsboro;
+	width: 160px;
+	height: 400px;
+	padding-top: 90px;
+}
+#right ul {
+	margin-left:-160px;
+	height: 80px;
+	margin-top: 0rem;
+}
+#right ul li{
+	float: left;
+	width: 22%;
+	list-style: none;
+	font-size: 1.25rem;
+	height: 25px;
+	padding-left: 270px;
+	line-height: 15px;
+    padding-top: 15px;
+}
+#right{
+	position: absolute;
+	width: 100%;
+	margin-top: 7%;
+	background-color: gainsboro;
+	padding-left:350px;
+	height: 40px;
+}
+#right ul li:hover{
+	text-decoration: underline;
+	background-color: lightgray;
+}
+#rightdown{
+	position:absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	height:500px;
+	width: 1350px;
+	margin-top: 11%;
+	margin-left: 13%;
+}
+#holyhands{
+	background-color: lightgray;
+}
+#doctor1{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 80px;
+}
+#doctor2{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 350px;
+}
+#doctor3{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 600px;
+}
+#doctor4{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 850px;
+}
+#doctor5{
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 1100px;
+}
+#search{
+	position: absolute;
+	margin-left: 1050px;
+	margin-top: 40px;
+}
+#doctor1:hover,#doctor2:hover,#doctor3:hover,#doctor4:hover,#doctor5:hover{
+	 transform: scale(1.05);
+}
+#past{
+	background-color: lightgray;
+}

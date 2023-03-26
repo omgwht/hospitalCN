@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院概况</title>
+    <link type="text/css" rel="stylesheet" href="./css/priv_hosInfo.css">
+</head>
+<body>
+    <div class="inLeft">
+        <div id="inLeftCenter">
+            <div class="fun_choice" id="hosInfo" onclick="window.location.href='./priv_hosInfo.html'">医院概况</div>
+            <div class="fun_choice" id="peoManage" onclick="window.location.href='./priv_peoManage.html'">人员管理</div>
+            <div class="fun_choice" id="depManage" onclick="window.location.href='./priv_depManage.html'">部门管理</div>
+            <div class="fun_choice" id="outPatitManage" onclick="window.location.href='./priv_outPatitManage.html'">门诊管理</div>
+            <div class="fun_choice" id="phayManage" onclick="window.location.href='./priv_phayManage.html'">药房管理</div>
+            <div class="fun_choice" id="eCaseHis" onclick="window.location.href='./priv_eCaseHis.html'">电子病历</div>
+            <div class="fun_choice" id="inherit" onclick="window.location.href='./priv_inherit.html'">名老中医传承</div>
+            <div class="fun_choice" id="eAssisstance" onclick="window.location.href='./priv_eAssisstance.html'">智能辅助诊疗</div>
+            <div class="fun_choice" id="bgManage" onclick="window.location.href='./priv_bgManage.html'">后台管理</div>
+        </div>
+    </div>
+    <div class="inRight">
+        <div id="inRightUpper">
+            <div id="RU_text">线上智慧管理系统</div>
+        </div>
+        <div id="inRightBottom">
+            <div id="Info_title_div"><h2 id="Info_title"></h2></div>
+            <script src="./js/utilData.js"></script>
+            <script>
+                var add_title = document.getElementById('Info_title');
+                var hos_info_arr = hospital_info();
+                add_title.innerHTML = hos_info_arr[0]+"简介";
+            </script>
+            <hr>
+            <div id="hosInfo_text">
+                <script>
+                    var hos_info_arr = hospital_info();
+                    var text = hos_info_arr[1];
+                    var ele = document.getElementById('hosInfo_text');
+                    ele.innerHTML = text;
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+    
+</html>

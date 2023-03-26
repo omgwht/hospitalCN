@@ -1,0 +1,193 @@
+body{
+    background-image: url(../img/ZY_culture1.png);
+    background-size: cover;
+}
+#inUpperLeft{
+    display: inline;
+    float: left;
+    width: 25%;
+    margin-top: 30px;
+}
+#inUpperLeft:hover{
+	text-decoration: underline; /*下划线效果*/
+}
+#data_share_center,#cn_hospital_sys{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+#cn_hospital_sys{
+    margin-top: 5px;
+}
+/* 设置右上角的两个按钮 */
+#inUpperRight{
+    display: flex;
+    position: relative;
+    float: right;
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: bold;
+    width: 20%;
+    height: 20px;
+}
+#public_sys{
+    border: 2px solid black;
+    position: absolute;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#public_sys:hover{
+    transform: scale(1.1);
+}
+#private_sys{
+    border: 2px solid black;
+    position: absolute;
+    margin-left: 30%;
+    line-height: 60px;
+    width: 25%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+}
+#private_sys:hover{
+    transform: scale(1.1);
+}
+#left ul li{
+	height: 100px;
+	list-style: none;
+	font-size: 20px;
+	width:120px ;
+	line-height: 100px;
+	padding-left: 40px;
+}
+#left ul{
+	padding-left: 0%;	
+}
+#left ul li:hover{
+	text-decoration: underline;
+	background-color:lightgray;
+}
+#left{
+	position: absolute;
+	margin-top: 11%;
+	background-color: gainsboro;
+	width: 160px;
+	height: 400px;
+	padding-top: 90px;
+}
+#right ul {
+	margin-left:6% ;
+	height: 80px;
+	margin-top: 0rem;
+}
+#right ul li{
+	float: left;
+	width: 11.5%;
+	list-style: none;
+	font-size: 1.25rem;
+	height: 25px;
+	padding-left: 90px;
+	line-height: 15px;
+	
+	padding-top: 15px;
+}
+#right{
+	position: absolute;
+	width: 100%;
+	margin-top: 7%;
+	background-color: gainsboro;
+	padding-left:80px;
+
+	height: 40px;
+	
+}
+#right ul li:hover{
+	text-decoration: underline;
+	background-color: lightgray;
+}
+#rightdown{
+	position:absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	height:500px;
+	width: 1350px;
+	margin-top: 11%;
+	margin-left: 13%;
+}
+#content1{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 400px;
+	width: 380px;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+#content1w{
+	position: absolute;
+	margin-top:20px ;
+	width:350px;
+	margin-left: 20px;
+	font-size:17px ;
+}
+#content1p{
+	position:absolute;
+	margin-top:190px ;
+	margin-left: 15px;
+
+}
+#content2{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 400px;
+	width: 380px;
+	margin-top: 50px;
+	margin-left:480px;
+}
+#content2p{
+	position: absolute;
+	margin-top: 190px;
+	margin-left: 15px;
+}
+#content2w{
+	position: absolute;
+	width:350px;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size:17px ;
+}
+#content3{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 400px;
+	width: 380px;
+	margin-top: 50px;
+	margin-left: 910px;
+}
+#content3p{
+	position: absolute;
+	margin-top: 190px;
+	margin-left: 15px;
+}
+#content3w{
+	position: absolute;
+	width:350px;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size:17px ;
+}
+#history{
+	background-color: lightgray;
+}
+p{
+	text-indent: 2em;/*文字前空两格*/
+}
+#formation{
+	background-color: lightgray;
+}
+#content1:hover,#content2:hover,#content3:hover{
+	  transform: scale(1.02);
+}

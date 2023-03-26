@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>药房管理</title>
+    <link type="text/css" rel="stylesheet" href="./css/priv_phayManage.css">
+</head>
+<body>
+    <div class="inLeft">
+        <div id="inLeftCenter">
+            <div class="fun_choice" id="hosInfo" onclick="window.location.href='./priv_hosInfo.html'">医院概况</div>
+            <div class="fun_choice" id="peoManage" onclick="window.location.href='./priv_peoManage.html'">人员管理</div>
+            <div class="fun_choice" id="depManage" onclick="window.location.href='./priv_depManage.html'">部门管理</div>
+            <div class="fun_choice" id="outPatitManage" onclick="window.location.href='./priv_outPatitManage.html'">门诊管理</div>
+            <div class="fun_choice" id="phayManage" onclick="window.location.href='./priv_phayManage.html'">药房管理</div>
+            <div class="fun_choice" id="eCaseHis" onclick="window.location.href='./priv_eCaseHis.html'">电子病历</div>
+            <div class="fun_choice" id="inherit" onclick="window.location.href='./priv_inherit.html'">名老中医传承</div>
+            <div class="fun_choice" id="eAssisstance" onclick="window.location.href='./priv_eAssisstance.html'">智能辅助诊疗</div>
+            <div class="fun_choice" id="bgManage" onclick="window.location.href='./priv_bgManage.html'">后台管理</div>
+        </div>
+    </div>
+    <div class="inRight">
+        <div id="inRightUpper">
+            <div id="RU_text">线上智慧管理系统</div>
+        </div>
+        <div id="inRightBottom">
+            <div id="Info_title_div"><h2 id="Info_title">药房管理</h2></div>
+            <hr>
+            <div id="Info_text">
+                
+                <div class="FunChoice_R" id="DrugIn">药品入库</div>
+                <div class="FunChoice_R" id="DrugOut">药品出库</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="./js/utilData.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>    <!-- 添加点击事件 -->
+    <script>
+       let drug_in_click = document.getElementById("DrugIn");
+       drug_in_click.addEventListener("click",function(){
+        // 移除所有元素
+        var need_to_delete = document.getElementById('Info_text');
+        while(need_to_delete.children.length){
+            need_to_delete.lastChild.remove();
+        }
+
+        var parent_div = document.getElementById("Info_text");
+
+        // 开始添加元素
+        var change_title = document.getElementById('Info_title');
+        change_title.innerHTML = "药品入库";
+
+        // 入库单号
+        var drug_in_num = document.createElement("div");
+        drug_in_num.id = "drug_in_num";
+        drug_in_num.className = "class_of_choice";
+        drug_in_num.innerHTML = "入库单号<br/>";
+
+        var drug_in_num_input = document.createElement("input");
+        drug_in_num_input.id = "DrugInNumInput";
+        drug_in_num_input.setAttribute("readOnly",true);
+        drug_in_num_input.value = "IN"+getTimeNum();
+        var drug_in_num_input_parent = document.getElementById("drug_in_num");
+        drug_in_num.appendChild(drug_in_num_input);
+        parent_div.appendChild(drug_in_num);
+
+        // 入库日期
+        var drug_in_date = document.createElement("div");
+        drug_in_date.id = "drug_in_date";
+        drug_in_date.className = "class_of_choice";
+        drug_in_date.innerHTML = "入库日期<br/>";
+
+        var drug_in_date_input = document.createElement("input");
+        drug_in_date_input.id = "DrugInDateInput";
+        drug_in_date_input.setAttribute("readOnly",true);
+        drug_in_date_input.value = getNowTime();
+        var drug_in_date_input_parent = document.getElementById("drug_in_date");
+        drug_in_date.appendChild(drug_in_date_input);
+        parent_div.appendChild(drug_in_date);
+
+        // 入库人员
+        var drug_in_staff = document.createElement("div");
+        drug_in_staff.id = "DrugInStaff";
+        drug_in_staff.className = "class_of_choice";
+        drug_in_staff.innerHTML = "入库人员<br>";
+
+        var drug_in_staff_select = document.createElement("select");
+        drug_in_staff_select.id = "DrugInStaffSelect";
+        drug_in_staff_select.length = 1;
+        drug_in_staff.appendChild(drug_in_staff_select);
+
+        var drug_in_staff_option = document.createElement("option");
+        drug_in_staff_option.setAttribute("value","李尧儒");
+        drug_in_staff_option.appendChild(document.createTextNode("李尧儒"));
+        drug_in_staff_select.appendChild(drug_in_staff_option);
+
+        var drug_in_staff_option = document.createElement("option");
+        drug_in_staff_option.setAttribute("value","王耀进");
+        drug_in_staff_option.appendChild(document.createTextNode("王耀进"));
+        drug_in_staff_select.appendChild(drug_in_staff_option);
+        parent_div.appendChild(drug_in_staff);
+
+        // 入库类型
+        var drug_in_type = document.createElement("div");
+        drug_in_type.id = "DrugInType";
+        drug_in_type.className = "class_of_choice";
+        drug_in_type.innerHTML = "入库类型<br>";
+
+        var drug_in_type_select = document.createElement("select");
+        drug_in_type_select.id = "DrugInTypeSelect";
+        drug_in_type_select.length = 1;
+        drug_in_type.appendChild(drug_in_type_select);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","采购入库");
+        drug_in_type_option.appendChild(document.createTextNode("采购入库"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","退货入库");
+        drug_in_type_option.appendChild(document.createTextNode("退货入库"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","其他入库");
+        drug_in_type_option.appendChild(document.createTextNode("其他入库"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+        parent_div.appendChild(drug_in_type);
+
+        // 供应商
+        var drug_in_from = document.createElement("div");
+        drug_in_from.id = "DrugInFrom";
+        drug_in_from.className = "class_of_choice";
+        drug_in_from.innerHTML = "供应商<br>";
+
+        var drug_in_from_select = document.createElement("select");
+        drug_in_from_select.id = "DrugInFromSelect";
+        drug_in_from_select.length = 1;
+        drug_in_from.appendChild(drug_in_from_select);
+
+        var drug_in_from_option = document.createElement("option");
+        drug_in_from_option.setAttribute("value","蓝天制药厂");
+        drug_in_from_option.appendChild(document.createTextNode("蓝天制药厂"));
+        drug_in_from_select.appendChild(drug_in_from_option);
+
+        var drug_in_from_option = document.createElement("option");
+        drug_in_from_option.setAttribute("value","白云制药厂");
+        drug_in_from_option.appendChild(document.createTextNode("白云制药厂"));
+        drug_in_from_select.appendChild(drug_in_from_option);
+        parent_div.appendChild(drug_in_from);
+
+        // 入库备注
+        var drug_in_remark = document.createElement("div");
+        drug_in_remark.id = "drug_in_remark";
+        drug_in_remark.className = "class_of_choice";
+        drug_in_remark.innerHTML = "备注<br/>";
+
+        var drug_in_remark_input = document.createElement("input");
+        drug_in_remark_input.id = "DrugInNumInput";
+        var drug_in_remark_input_parent = document.getElementById("drug_in_remark_input");
+        drug_in_remark.appendChild(drug_in_remark_input);
+        parent_div.appendChild(drug_in_remark);
+        
+        // 药品通用名
+        var drug_name = document.createElement("div");
+        drug_name.id = "drug_name";
+        drug_name.className = "class_of_choice";
+        drug_name.innerHTML = "药品通用名<br/>";
+
+        var drug_name_input = document.createElement("input");
+        drug_name_input.id = "DrugNameInput";
+        var drug_name_input_parent = document.getElementById("drug_name_input");
+        drug_name.appendChild(drug_name_input);
+        parent_div.appendChild(drug_name);
+
+        // 包装单位
+        var drug_unit = document.createElement("div");
+        drug_unit.id = "DrugUnit";
+        drug_unit.className = "class_of_choice";
+        drug_unit.innerHTML = "包装单位<br>";
+
+        var drug_unit_select = document.createElement("select");
+        drug_unit_select.id = "DrugUnitSelect";
+        drug_unit_select.length = 1;
+        drug_unit.appendChild(drug_unit_select);
+
+        var drug_unit_option = document.createElement("option");
+        drug_unit_option.setAttribute("value","盒");
+        drug_unit_option.appendChild(document.createTextNode("盒"));
+        drug_unit_select.appendChild(drug_unit_option);
+
+        var drug_unit_option = document.createElement("option");
+        drug_unit_option.setAttribute("value","袋");
+        drug_unit_option.appendChild(document.createTextNode("袋"));
+        drug_unit_select.appendChild(drug_unit_option);
+
+        var drug_unit_option = document.createElement("option");
+        drug_unit_option.setAttribute("value","片");
+        drug_unit_option.appendChild(document.createTextNode("片"));
+        drug_unit_select.appendChild(drug_unit_option);
+        parent_div.appendChild(drug_unit);
+
+        // 采购价
+        var drug_price = document.createElement("div");
+        drug_price.id = "drug_price";
+        drug_price.className = "class_of_choice";
+        drug_price.innerHTML = "采购价（元）<br/>";
+
+        var drug_price_input = document.createElement("input");
+        drug_price_input.id = "DrugPriceInput";
+        var drug_price_input_parent = document.getElementById("drug_price_input");
+        drug_price.appendChild(drug_price_input);
+        parent_div.appendChild(drug_price);
+
+
+        // 提交按钮
+        var submit_btn = document.createElement("div");
+        submit_btn.id = "SubmitBtn";
+        submit_btn.innerHTML = "入库";
+        var sub_parent_div = document.getElementById("inRightBottom");
+        sub_parent_div.appendChild(submit_btn);
+        document.getElementById('SubmitBtn').addEventListener('click',function(){
+            var drug_in_staff_info = document.getElementById('DrugInStaffSelect').value;
+            var drug_in_type_info = document.getElementById('DrugInTypeSelect').value;
+            var drug_in_from_info = document.getElementById('DrugInFromSelect').value;
+            var drug_name_info = document.getElementById('DrugNameInput').value;
+            var drug_unit_info = document.getElementById('DrugUnitSelect').value;
+            var drug_price_info = document.getElementById('DrugPriceInput').value;
+            if(!drug_in_staff_info||!drug_in_type_info||!drug_in_from_info||!drug_name_info
+            ||!drug_unit_info||!drug_price_info){
+                alert("请将所有项填写完整");
+            }else{
+                alert("保存成功！");
+            }
+        })
+       })
+
+       let drug_out_click = document.getElementById("DrugOut");
+       drug_out_click.addEventListener("click",function(){
+         // 移除所有元素
+         var need_to_delete = document.getElementById('Info_text');
+        while(need_to_delete.children.length){
+            need_to_delete.lastChild.remove();
+        }
+
+        var parent_div = document.getElementById("Info_text");
+        // 开始添加元素
+        var change_title = document.getElementById('Info_title');
+        change_title.innerHTML = "药品出库";
+        // 出库单号
+        var drug_in_num = document.createElement("div");
+        drug_in_num.id = "drug_in_num";
+        drug_in_num.className = "class_of_choice";
+        drug_in_num.innerHTML = "出库单号<br/>";
+
+        var drug_in_num_input = document.createElement("input");
+        drug_in_num_input.id = "DrugInNumInput";
+        drug_in_num_input.setAttribute("readOnly",true);
+        drug_in_num_input.value = "OUT"+getTimeNum();
+        var drug_in_num_input_parent = document.getElementById("drug_in_num");
+        drug_in_num.appendChild(drug_in_num_input);
+        parent_div.appendChild(drug_in_num);
+
+        // 出库日期
+        var drug_in_date = document.createElement("div");
+        drug_in_date.id = "drug_in_date";
+        drug_in_date.className = "class_of_choice";
+        drug_in_date.innerHTML = "出库日期<br/>";
+
+        var drug_in_date_input = document.createElement("input");
+        drug_in_date_input.id = "DrugInDateInput";
+        drug_in_date_input.setAttribute("readOnly",true);
+        drug_in_date_input.value = getNowTime();
+        var drug_in_date_input_parent = document.getElementById("drug_in_date");
+        drug_in_date.appendChild(drug_in_date_input);
+        parent_div.appendChild(drug_in_date);
+
+        // 出库人员
+        var drug_in_staff = document.createElement("div");
+        drug_in_staff.id = "DrugInStaff";
+        drug_in_staff.className = "class_of_choice";
+        drug_in_staff.innerHTML = "出库人员<br>";
+
+        var drug_in_staff_select = document.createElement("select");
+        drug_in_staff_select.id = "DrugInStaffSelect";
+        drug_in_staff_select.length = 1;
+        drug_in_staff.appendChild(drug_in_staff_select);
+
+        var drug_in_staff_option = document.createElement("option");
+        drug_in_staff_option.setAttribute("value","李尧初");
+        drug_in_staff_option.appendChild(document.createTextNode("李尧初"));
+        drug_in_staff_select.appendChild(drug_in_staff_option);
+
+        var drug_in_staff_option = document.createElement("option");
+        drug_in_staff_option.setAttribute("value","王耀楚");
+        drug_in_staff_option.appendChild(document.createTextNode("王耀楚"));
+        drug_in_staff_select.appendChild(drug_in_staff_option);
+        parent_div.appendChild(drug_in_staff);
+
+        // 出库类型
+        var drug_in_type = document.createElement("div");
+        drug_in_type.id = "DrugInType";
+        drug_in_type.className = "class_of_choice";
+        drug_in_type.innerHTML = "出库类型<br>";
+
+        var drug_in_type_select = document.createElement("select");
+        drug_in_type_select.id = "DrugInTypeSelect";
+        drug_in_type_select.length = 1;
+        drug_in_type.appendChild(drug_in_type_select);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","科室领药");
+        drug_in_type_option.appendChild(document.createTextNode("科室领药"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","报损出库");
+        drug_in_type_option.appendChild(document.createTextNode("报损出库"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+
+        var drug_in_type_option = document.createElement("option");
+        drug_in_type_option.setAttribute("value","采购退货");
+        drug_in_type_option.appendChild(document.createTextNode("采购退货"));
+        drug_in_type_select.appendChild(drug_in_type_option);
+        parent_div.appendChild(drug_in_type);
+
+        // 药品通用名
+        var drug_name = document.createElement("div");
+        drug_name.id = "drug_name";
+        drug_name.className = "class_of_choice";
+        drug_name.innerHTML = "药品通用名<br/>";
+
+        var drug_name_input = document.createElement("input");
+        drug_name_input.id = "DrugNameInput";
+        var drug_name_input_parent = document.getElementById("drug_name_input");
+        drug_name.appendChild(drug_name_input);
+        parent_div.appendChild(drug_name);
+
+
+        // 出库备注
+        var drug_in_remark = document.createElement("div");
+        drug_in_remark.id = "drug_in_remark";
+        drug_in_remark.className = "class_of_choice";
+        drug_in_remark.innerHTML = "备注<br/>";
+
+        var drug_in_remark_input = document.createElement("input");
+        drug_in_remark_input.id = "DrugInNumInput";
+        var drug_in_remark_input_parent = document.getElementById("drug_in_remark_input");
+        drug_in_remark.appendChild(drug_in_remark_input);
+        parent_div.appendChild(drug_in_remark);
+
+        // 提交按钮
+        var submit_btn = document.createElement("div");
+        submit_btn.id = "SubmitBtn";
+        submit_btn.innerHTML = "出库";
+        var sub_parent_div = document.getElementById("inRightBottom");
+        sub_parent_div.appendChild(submit_btn);
+        document.getElementById('SubmitBtn').addEventListener('click',function(){
+            var drug_in_staff_info = document.getElementById('DrugInStaffSelect').value;
+            var drug_in_type_info = document.getElementById('DrugInTypeSelect').value;
+            var drug_name_info = document.getElementById('DrugNameInput').value;
+            if(!drug_in_staff_info||!drug_in_type_info||!drug_name_info){
+                alert("请将所有项填写完整");
+            }else{
+                alert("保存成功！");
+            }
+        })
+        
+       })
+
+       
+    </script>
+</html>

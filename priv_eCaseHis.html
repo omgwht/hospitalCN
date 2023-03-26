@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子病历</title>
+    <link type="text/css" rel="stylesheet" href="./css/priv_eCaseHis.css">
+</head>
+<body>
+    <div class="inLeft">
+        <div id="inLeftCenter">
+            <div class="fun_choice" id="hosInfo" onclick="window.location.href='./priv_hosInfo.html'">医院概况</div>
+            <div class="fun_choice" id="peoManage" onclick="window.location.href='./priv_peoManage.html'">人员管理</div>
+            <div class="fun_choice" id="depManage" onclick="window.location.href='./priv_depManage.html'">部门管理</div>
+            <div class="fun_choice" id="outPatitManage" onclick="window.location.href='./priv_outPatitManage.html'">门诊管理</div>
+            <div class="fun_choice" id="phayManage" onclick="window.location.href='./priv_phayManage.html'">药房管理</div>
+            <div class="fun_choice" id="eCaseHis" onclick="window.location.href='./priv_eCaseHis.html'">电子病历</div>
+            <div class="fun_choice" id="inherit" onclick="window.location.href='./priv_inherit.html'">名老中医传承</div>
+            <div class="fun_choice" id="eAssisstance" onclick="window.location.href='./priv_eAssisstance.html'">智能辅助诊疗</div>
+            <div class="fun_choice" id="bgManage" onclick="window.location.href='./priv_bgManage.html'">后台管理</div>
+        </div>
+    </div>
+    <div class="inRight">
+        <div id="inRightUpper">
+            <div id="RU_text">线上智慧管理系统</div>
+        </div>
+        <div id="inRightBottom">
+            <div id="Info_title_div"><h2 id="Info_title">电子病历</h2></div>
+            <hr>
+            <div id="Info_text">
+                <div class="row" id="row_1">
+                    <div class="row_1_item" id="case_num">
+                        <span class="title">病历编号:</span>
+                        <span class="data"><input class="show_detail_data" id="case_num_input" type="text"></span>
+                    </div>
+                    <div class="row_1_item" id="case_date">
+                        <span class="title">诊断日期:</span>
+                        <span class="data"><input class="show_detail_data" id="case_date_input" type="text"></span>
+                    </div>
+                    <div class=row_1_item id="case_dep">
+                        <span class="title">诊断科室:</span>
+                        <span class="data"><select class="show_detail_data" id="case_dep_select"></select> </span>
+                    </div>
+                </div>
+                <div class="row" id="row_2">
+                    <div class="row_2_item" id="case_doctor">
+                        <span class="title">诊断医生:</span>
+                        <span class="data"><select class="show_detail_data" id="case_doctor_select"></select></span>
+                    </div>
+                    <div class="row_2_item" id="case_patient_name">
+                        <span class="title">患者姓名:</span>
+                        <span class="data"><input class="show_detail_data" id="case_patient_name_input"></span>
+                    </div>
+                    <div class="row_2_item" id="case_birth_date">
+                        <span class="title">出生日期:</span>
+                        <span class="data"><input class="show_detail_data" id="case_birth_date_input" type="date"></span>
+                    </div>
+                </div>
+                <div class="row" id="row_3">
+                    <div class="row_3_item" id="pre_his">
+                        <span class="title">既往史:&nbsp&nbsp&nbsp</span>
+                        <span class="data"><input class="show_detail_data" id="pre_his_input" type="text"></span>
+                    </div>
+                    <div class="row_3_item" id="ana_his">
+                        <span class="title">过敏史:&nbsp&nbsp&nbsp</span>
+                        <span class="data"><input class="show_detail_data" id="ana_his_input" type="text"></span>
+                    </div>
+                    <div class=row_3_item id="per_his">
+                        <span class="title">个人史:&nbsp&nbsp&nbsp</span>
+                        <span class="data"><input class="show_detail_data" id="per_his_select"></span>
+                    </div>
+                </div>
+                <div class="title big_title" id="patient_say">病人自述:<br></div>
+                <div class="row" id="row_4">
+                        <div class="data"><textarea class="txa" id="patient_say_textarea" rows="5" cols="130"></textarea> </div>
+                </div>
+                <div class="title big_title" id="diagnose_res_title">诊断结果:<br></div>
+                <div class="row" id="row_5">
+                        <div class="data"><textarea class="txa" id="diagnose_res_textarea" rows="5" cols="130"></textarea> </div>
+                </div>
+                <div class="title big_title" id="doc_order_title">医嘱信息:<br></div>
+                <div class="row" id="row_6">
+                        <div class="data"><textarea class="txa" id="doc_order_textarea" rows="3" cols="130"></textarea> </div>
+                </div>
+                <div class="title big_title" id="treat_advice_title">治疗意见:<br></div>
+                <div class="row" id="row_6">
+                        <div class="data"><textarea class="txa" id="treat_advice_textarea" rows="3" cols="130"></textarea> </div>
+                </div>
+                <div id="submit_btn">提交</div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="./js/utilData.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var case_num_input = document.getElementById('case_num_input');
+        case_num_input.setAttribute("readOnly",true);
+        case_num_input.value = getTimeNum();
+
+        var case_date_input = document.getElementById('case_date_input');
+        case_date_input.setAttribute("readOnly",true);
+        case_date_input.value = getNowTime();
+
+        var case_dep_select = document.getElementById('case_dep_select');
+        case_dep_select.length = 1;
+        var depName_set = getDepName();
+        for(let name of depName_set){
+            var optionElement=document.createElement("option");//创建option元素
+            optionElement.setAttribute("value",name);
+            optionElement.appendChild(document.createTextNode(name));
+            case_dep_select.appendChild(optionElement);
+        }
+
+        var case_doctor_select = document.getElementById('case_doctor_select');
+        case_doctor_select.length = 1;
+        var option_Element=document.createElement("option");//创建option元素
+        // 获取接诊科室的名字
+        case_dep_select.addEventListener('change', function() {
+        var doc_need_to_delete = document.getElementById("case_doctor_select");
+        while(doc_need_to_delete.children.length){
+            doc_need_to_delete.lastElementChild.remove();
+        }
+        // 获取选中项的内容
+        let selectedOption = case_dep_select.options[case_dep_select.selectedIndex].text;
+        let doctor_map = getSpeDepStaff(selectedOption);
+        for(var [key, value] of doctor_map){
+            var doc_name_option=document.createElement("option");//创建option元素
+            doc_name_option.setAttribute("value",key);
+            doc_name_option.appendChild(document.createTextNode(key));
+            case_doctor_select.appendChild(doc_name_option);
+        }
+        console.log(selectedOption);
+        });
+
+        
+    </script>
+</html>

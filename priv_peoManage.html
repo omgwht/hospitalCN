@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人员管理</title>
+    <link type="text/css" rel="stylesheet" href="./css/priv_peoManage.css">
+</head>
+<body>
+    <div class="inLeft">
+        <div id="inLeftCenter">
+            <div class="fun_choice" id="hosInfo" onclick="window.location.href='./priv_hosInfo.html'">医院概况</div>
+            <div class="fun_choice" id="peoManage" onclick="window.location.href='./priv_peoManage.html'">人员管理</div>
+            <div class="fun_choice" id="depManage" onclick="window.location.href='./priv_depManage.html'">部门管理</div>
+            <div class="fun_choice" id="outPatitManage" onclick="window.location.href='./priv_outPatitManage.html'">门诊管理</div>
+            <div class="fun_choice" id="phayManage" onclick="window.location.href='./priv_phayManage.html'">药房管理</div>
+            <div class="fun_choice" id="eCaseHis" onclick="window.location.href='./priv_eCaseHis.html'">电子病历</div>
+            <div class="fun_choice" id="inherit" onclick="window.location.href='./priv_inherit.html'">名老中医传承</div>
+            <div class="fun_choice" id="eAssisstance" onclick="window.location.href='./priv_eAssisstance.html'">智能辅助诊疗</div>
+            <div class="fun_choice" id="bgManage" onclick="window.location.href='./priv_bgManage.html'">后台管理</div>
+        </div>
+    </div>
+    <div class="inRight">
+        <div id="inRightUpper">
+            <div id="RU_text">线上智慧管理系统</div>
+        </div>
+        <div id="inRightBottom">
+            <div id="Info_title_div"><h2 id="Info_title">人员管理</h2></div>
+            <hr>
+            <div id="Info_text">
+                
+                <!-- <div id="show_staff_all_div">
+                    <div class="staff_info_div">
+                        <div class="staff_photo"></div>
+                        <div class="staff_job">院长</div>
+                        <div class="staff_name">张三</div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="./js/utilData.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>    <!-- 添加点击事件 -->
+    <script>
+        
+        var staff_info_arr = staffInfo();
+        for(let [key,value] of staff_info_arr){
+            var show_staff_all_div = document.createElement("div");
+            show_staff_all_div.id = "show_staff_all_div";
+            let parent = document.getElementById('Info_text');
+            parent.appendChild(show_staff_all_div);
+
+            var staff_info_div = document.createElement("div");
+            staff_info_div.className = "staff_info_div";
+            var staff_info_div_parent = document.getElementById('show_staff_all_div');
+            
+
+            var staff_photo = document.createElement("div");
+            staff_photo.className = "staff_photo";
+            staff_info_div.appendChild(staff_photo);
+
+            var staff_job = document.createElement("div");
+            staff_job.className = "staff_job";
+            staff_job.innerHTML = value;
+            staff_info_div.appendChild(staff_job);
+
+            var staff_name = document.createElement("div");
+            staff_name.className = "staff_name";
+            staff_name.innerHTML = key;
+            staff_info_div.appendChild(staff_name);
+
+            staff_info_div_parent.appendChild(staff_info_div);
+        }
+    </script>
+</html>

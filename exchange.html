@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>交流论坛</title>
+		 <link href="./styles/common.css" rel="stylesheet">
+	  	 <link href="./styles/exchange.css" rel="stylesheet">
+	</head>
+	<body>
+		<!--顶部-->
+		<header class="header left">
+		    <div class="left nav">
+		        <ul>
+		            <li><i class="nav_1"></i><a href="index1.html">采集概况</a> </li>
+					<li><i class="nav_2"></i><a href="quota.html">指标分析</a> </li>
+					<li><i class="nav_3"></i><a href="trend.html">趋势分析</a> </li>
+					<li><i class="nav_4"></i><a href="chronic.html">慢病病人列表</a> </li>
+					<li class="nav_active"><i class="nav_5"></i><a href="exchange.html">论坛交流</a> </li>
+		        </ul>
+		    </div>
+		    <div class="header_center left" style="position:relative">   
+		        <h2><strong><a>中医院大数据展示</a></strong></h2>
+		    </div>
+		<div class="right nav text_right">
+		    <ul>
+		
+		    </ul>
+		</div>
+		</header>
+		<div class="upper">
+		   <div class="upper_left">
+			   <li>医师交流</li>
+			   <li>病情辨析</li>
+		   </div>
+		   <div class="upper_center">
+			   <li>医患杂谈</li>
+			   <li>患者交流</li>
+		   </div>
+		   <div class="upper_right">
+			   <li>医药看台</li>
+			   <li>问题反馈</li>
+		   </div>
+		</div>
+		<div id="content">
+			<!-- <div class="content_big" id="0">
+				<div class="content_title"></div>
+				<div class="content_text"></div>
+				<div class="content_user_icon">
+				</div>
+				<div class="content_user_name"></div>
+				<div class="content_time"></div>
+			</div> -->
+		</div>
+		<div class="content2"></div>
+	</body>
+</html>
+<script src="./js/utilData.js"></script>
+<script>
+	var content_arr = getContentInfo();
+	var content = document.getElementById('content');
+	for(var i = 0; i < content_arr.length; i++){
+		var content_big = document.createElement("div");
+		content_big.className = "content_big";
+		content_big.id = i;
+		var content_title = document.createElement("div");
+		content_title.className = "content_title";
+		content_title.innerHTML = content_arr[i][0];
+		content_big.appendChild(content_title);
+		var content_text = document.createElement("div");
+		content_text.className = "content_text";
+		content_text.innerHTML = content_arr[i][1];
+		content_big.appendChild(content_text);
+		var content_user_icon = document.createElement("div");
+		content_user_icon.className = "content_user_icon";
+		content_big.appendChild(content_user_icon);
+		var icon_div = document.createElement("img");
+		icon_div.className = "icon_div";
+		icon_div.src ="./img/usericon.png";
+		content_user_icon.appendChild(icon_div);
+		var content_user_name = document.createElement("div");
+		content_user_name.className = "content_user_name";
+		content_user_name.innerHTML = content_arr[i][2];
+		content_big.appendChild(content_user_name);
+		var content_time = document.createElement("div");
+		content_time.className = "content_time";
+		content_time.innerHTML = content_arr[i][3];
+		content_big.appendChild(content_time);
+		content.appendChild(content_big);
+	}
+</script>

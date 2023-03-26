@@ -1,0 +1,142 @@
+.inLeft{
+    overflow: auto;
+    width: 15%;
+    height: 400px;
+    margin-top: 10%;
+    /* border: 2px solid black; */
+    float: left;
+}
+.inRight{
+    overflow: auto;
+    width: 83%;
+    height: 700px;
+    border: 1px solid gray;
+}
+#inLeftCenter{
+    height: auto;
+    /* margin-top: 25%; */
+    /* border: 2px solid red; */
+    width: auto;
+    overflow: auto;
+}
+
+/* 设置左侧每一个选项的样式 */
+.fun_choice{
+    width: auto;
+    height: 45px;
+    /* border: 2px solid blueviolet; */
+    text-align: center;
+    font-size: large;
+    /* padding-top: 9.5%; */
+    font-weight: bold;
+    line-height: 45px;
+}
+#eCaseHis{
+    background-image: url(../img/privChoiceBG.jpg);
+    background-size: cover;
+    color: white;
+    font-weight: bolder;
+}
+
+.fun_choice:hover{
+    color: white;
+    font-weight: bolder;
+    background-color: #012060;
+}
+
+
+/* 设置右侧 */
+.inRight{
+    box-shadow: 10px 10px 5px #888888;
+}
+/* 右上 */
+#inRightUpper{
+    width: auto;
+    height: 63px;
+    /* border: 2px solid salmon; */
+    background-color: #355896;
+    line-height: 63px;
+    text-align: right;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+}
+#RU_text{
+    /* border: 2px solid sandybrown; */
+    /* width: fit-content; */
+    height: 63px;
+    margin-right: 10%;
+}
+
+#Info_title_div{
+    margin-left: 5%;
+}
+
+
+#Info_text{
+    /* border: 2px solid blue; */
+    /* background-color: #EEEFFB; */
+    width: 85%;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-size: larger;
+    overflow: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.row{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 0px;
+    width: 100%;
+    /* height: 35px; */
+    /* border: 2px solid salmon; */
+}
+/* #row_1{
+    margin-left: 0px;
+    width: 100%;
+    height: 35px;
+    border: 2px solid salmon;
+} */
+.row_1_item,.row_2_item,.row_3_item{
+    width: 30%;
+    height: 98%;
+    margin-left: 3%;
+    margin-top: 20px;
+    /* border: 2px solid aqua; */
+}
+.row_1_item{
+    margin-top: 0px;
+}
+.show_detail_data{
+    width: 60%;
+}
+.big_title{
+    margin-left: 3%;
+    margin-top: 20px;
+}
+.txa{
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 15px;
+    overflow: auto;
+    word-break: break-all;
+}
+#row_6{
+    margin-bottom: 20px;
+}
+#submit_btn{
+    width: 15%;
+    height: 40px;
+    line-height: 40px;
+    border: 2px solid skyblue;
+    margin-left: 42%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #4472C4;
+    color: white;
+}
